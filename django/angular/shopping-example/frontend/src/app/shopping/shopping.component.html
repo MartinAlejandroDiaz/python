@@ -1,0 +1,28 @@
+<div style="text-align:center">
+    <h1>
+        Lista de compras
+    </h1>
+</div>
+<ul>
+    <li *ngFor="let item of items">
+        <h2>{{ item.quantity }}x {{ item.name }}
+        <button (click)="delete(item.id)">x</button></h2>
+    </li>
+</ul>
+
+<input #itemQuantity type='text' placeholder='Qtd'>
+<input #itemName type='text' placeholder='Name'>
+<button (click)="add(itemName.value, itemQuantity.value)">Add</button>
+{{ error?.message }}
+
+<div style="text-align:center">
+<h1>
+    Shopping list
+</h1>
+</div>
+<ul>
+<li *ngFor="let item of items">
+    <h2>{{ item.name }}</h2>
+</li>
+</ul>
+{{ error?.message }}

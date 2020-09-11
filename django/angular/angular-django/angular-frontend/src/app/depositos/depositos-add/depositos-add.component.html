@@ -1,0 +1,63 @@
+<mat-card>
+
+	<mat-card-title>
+		Nuevo deposito
+	</mat-card-title>
+
+	<mat-divider></mat-divider>
+
+	<mat-card-content>
+
+		<form #depositoForm="ngForm">
+
+
+			<div layout="row">
+				<mat-form-field flex>
+					<input matInput
+					[(ngModel)]="deposito.descripcion"
+					#elementDescripcionControl="ngModel"
+					type="text" 
+					name="Descripcion"
+					placeholder="Descripcion"
+					maxlength="30"
+					required
+					>
+					<mat-hint alig="start">
+						<span [hidden]="elementDescripcionControl.pristine || !elementDescripcionControl.errors?.required" class="tc-red-600"> Requerido
+						</span>
+					</mat-hint>
+				</mat-form-field>
+			</div>
+
+			<div layout="row">
+				<mat-form-field flex>
+					<input matInput
+					[(ngModel)]="deposito.codigo"
+					#elementcodigoControl="ngModel"
+					type="number" 
+					name="codigo"
+					placeholder="Codigo"
+					required
+					>
+					<mat-hint alig="start">
+						<span [hidden]="elementcodigoControl.pristine || !elementcodigoControl.errors?.required" class="tc-red-600"> Numero requerido
+						</span>
+					</mat-hint>
+				</mat-form-field>
+			</div>
+
+
+		</form>
+
+	</mat-card-content>
+
+	<mat-divider></mat-divider>
+
+	<mat-card-actions>
+		<button mat-button [disabled]="!depositoForm.valid" color="primary" (click)="save()">
+		Guardar </button>
+		<button mat-button (click)="redirect()"> 
+		Volver </button>
+	</mat-card-actions>
+
+</mat-card>
